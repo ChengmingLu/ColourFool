@@ -3,9 +3,10 @@ using System.Collections;
 
 public class blockSpawner : MonoBehaviour {
     public GameObject blockObject;
+    public GameObject[] colourfoolBlockObjects;
     volatile public int spawnSizeHor;
     volatile public int spawnSizeVer;
-    public GameObject[,] blockObjects;
+    public static GameObject[,] blockObjects;
     private Vector3[,] blockPositions;
     private int canvasSizeX;
     private int canvasSizeY;
@@ -23,20 +24,16 @@ public class blockSpawner : MonoBehaviour {
         canvasSizeY = Mathf.RoundToInt(gameObject.transform.parent.gameObject.GetComponent<RectTransform>().rect.size.y);
         blockSize = Mathf.RoundToInt(blockObject.GetComponent<SpriteRenderer>().bounds.size.x);
         canvasScaleFactor = gameObject.transform.parent.gameObject.GetComponent<Canvas>().scaleFactor;
-        //int index = 1;
-        //blockObject.name = "newGuy" + index;
-        //Instantiate(blockObject, gameObject.transform.position, Quaternion.identity);
-        //spawnBlocks();
-        //////////////////////testobject = Instantiate(blockObject) as GameObject;
         assignBlockPos();
         
         for (int i = 0; i < spawnSizeVer; i++) {
             for (int j = 0; j < spawnSizeHor; j++) {
+                blockObject = randomizedBlockObject();
                 blockObjects[i, j] = Instantiate(blockObject, blockPositions[i, j], Quaternion.identity) as GameObject;
-                //Debug.Log(gameObject);
-
             }
         }
+        blockProfile.updateIndex();
+        //clickControl.examineMatrix();
 	}
 	// Update is called once per frame
 	void Update () {
@@ -111,7 +108,10 @@ public class blockSpawner : MonoBehaviour {
         }
     }
 
-    void spawnBlocks() {
-
+    GameObject randomizedBlockObject() {
+        int rNG = UnityEngine.Random.Range(0, colourfoolBlockObjects.Length);
+        Debug.Log(rNG);
+        blockObject = colourfoolBlockObjects[rNG];
+        return blockObject;
     }
 }
