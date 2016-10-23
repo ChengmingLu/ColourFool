@@ -4,7 +4,7 @@ using System.Collections;
 public class clickControl : MonoBehaviour {
     public static GameObject selectedBlock1;
     public static GameObject selectedBlock2;
-    private int blockSpeed = 10;
+    //private int blockSpeed = 10;
 	// Use this for initialization
 	void Start () {
 	}
@@ -50,6 +50,7 @@ public class clickControl : MonoBehaviour {
                 if (blockSpawner.blockObjects[i, j] && blockSpawner.blockObjects[i + 1, j] && blockSpawner.blockObjects[i, j + 1] && blockSpawner.blockObjects[i + 1, j + 1] &&
                     blockSpawner.blockObjects[i, j].GetComponent<blockProfile>().colourIs == blockSpawner.blockObjects[i + 1, j + 1].GetComponent<blockProfile>().colourIs &&
                     blockSpawner.blockObjects[i, j + 1].GetComponent<blockProfile>().colourIs == blockSpawner.blockObjects[i + 1, j].GetComponent<blockProfile>().colourIs) {
+                    scoreHandler.registerFourBlockCombo();
                     for (int k = i; k < i + 2; k++) {
                         for (int l = j; l < j + 2; l++) {
                             if (blockSpawner.blockObjects[k, l]) {

@@ -20,10 +20,10 @@ public class blockSpawner : MonoBehaviour {
         blockObjects = new GameObject[spawnSizeVer, spawnSizeHor];
         Debug.Log(blockObject.GetComponent<SpriteRenderer>().bounds.size.x);
         Debug.Log(gameObject.transform.parent.gameObject.GetComponent<RectTransform>().rect.size.x);
-        canvasSizeX = Mathf.RoundToInt(gameObject.transform.parent.gameObject.GetComponent<RectTransform>().rect.size.x);
-        canvasSizeY = Mathf.RoundToInt(gameObject.transform.parent.gameObject.GetComponent<RectTransform>().rect.size.y);
+        //canvasSizeX = Mathf.RoundToInt(gameObject.transform.parent.gameObject.GetComponent<RectTransform>().rect.size.x);
+        //canvasSizeY = Mathf.RoundToInt(gameObject.transform.parent.gameObject.GetComponent<RectTransform>().rect.size.y);
         blockSize = Mathf.RoundToInt(blockObject.GetComponent<SpriteRenderer>().bounds.size.x);
-        canvasScaleFactor = gameObject.transform.parent.gameObject.GetComponent<Canvas>().scaleFactor;
+        //canvasScaleFactor = gameObject.transform.parent.gameObject.GetComponent<Canvas>().scaleFactor;
         assignBlockPos();
         
         for (int i = 0; i < spawnSizeVer; i++) {
