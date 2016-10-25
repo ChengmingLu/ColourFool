@@ -7,6 +7,10 @@ public class scoreHandler : MonoBehaviour {
     public static Text showScore;
 	// Use this for initialization
 	void Start () {
+        new WaitForSeconds(1);
+        if (blockSpawner.blockObjects[0, 0]) {
+            gameObject.transform.position = blockSpawner.blockObjects[0, 0].transform.position - new Vector3(120, 0, 0);
+        }
         showScore = gameObject.GetComponent<Text>();
         showScore.text = scoreDisplay.ToString();
 	}
