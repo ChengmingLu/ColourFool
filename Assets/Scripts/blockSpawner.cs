@@ -4,8 +4,8 @@ using System.Collections;
 public class blockSpawner : MonoBehaviour {
     public GameObject blockObject;
     public GameObject[] colourfoolBlockObjects;
-    volatile public int spawnSizeHor;
-    volatile public int spawnSizeVer;
+    volatile public static int spawnSizeHor;
+    volatile public static int spawnSizeVer;
     public static GameObject[,] blockObjects;
     private Vector3[,] blockPositions;
     private int canvasSizeX;

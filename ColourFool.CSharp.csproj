@@ -75,7 +75,10 @@
     <Compile Include="Assets\Scripts\blockProfile.cs" />
     <Compile Include="Assets\Scripts\blockSpawner.cs" />
     <Compile Include="Assets\Scripts\clickControl.cs" />
-    <Compile Include="Assets\scoreHandler.cs" />
+    <Compile Include="Assets\Scripts\difficulty.cs" />
+    <Compile Include="Assets\Scripts\difficultyManagement.cs" />
+    <Compile Include="Assets\Scripts\loadLevel.cs" />
+    <Compile Include="Assets\Scripts\scoreHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
