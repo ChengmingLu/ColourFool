@@ -9,11 +9,17 @@ public class scoreHandler : MonoBehaviour {
 	void Start () {
         showScore = gameObject.GetComponent<Text>();
         showScore.text = scoreDisplay.ToString();
+        
+
+        //
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    if (blockSpawner.blockObjects[0, 0]) {
+            gameObject.transform.position = blockSpawner.blockObjects[0, 0].transform.position - new Vector3(120, 0, 0);
+        }
 	}
 
     public static void registerFourBlockCombo() {
