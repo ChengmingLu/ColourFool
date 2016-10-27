@@ -32,6 +32,7 @@ public class blockSpawner : MonoBehaviour {
                 blockObjects[i, j] = Instantiate(blockObject, blockPositions[i, j], Quaternion.identity) as GameObject;
             }
         }
+        optimizeMatrix();
         blockProfile.updateIndex();
         //clickControl.examineMatrix();
 	}
@@ -114,4 +115,41 @@ public class blockSpawner : MonoBehaviour {
         blockObject = colourfoolBlockObjects[rNG];
         return blockObject;
     }
+
+    public void optimizeMatrix() {
+        bool justUpdated;//need to make sure no further matrix update is needed
+        int updateCount;//replacement counter
+        do {
+            Debug.Log("optimizing matrix");
+            updateCount = 0;
+            justUpdated = false;
+            for (int i = 0; i < blockObjects.GetLength(0) - 1; i++) {
+                for (int j = 0; j < blockObjects.GetLength(1) - 1; j++) {
+                    if (blockObjects[i, j].GetComponent<blockProfile>().colourIs == blockObjects[i + 1, j + 1].GetComponent<blockProfile>().colourIs) {
+                        Debug.Log("found one is the same");
+                        Debug.Log("this was" + blockObjects[i, j].GetComponent<blockProfile>().colourIs + " at " + i + " " + j);
+                        updateCount += 1;
+                        GameObject objBackup = blockObjects[i, j];
+                        Destroy(blockObjects[i, j]);
+                        blockObjects[i, j] = Instantiate(instantiateReplacement(objBackup), blockPositions[i, j], Quaternion.identity) as GameObject;
+                        
+                    } else {
+                        continue;
+                    }
+                }
+            }
+            if (updateCount != 0) {
+                justUpdated = true;
+            }
+        } while (justUpdated);        
+    }
+
+    GameObject instantiateReplacement(GameObject currentObject) {
+        GameObject replacement;
+        do {
+            replacement = randomizedBlockObject();
+        } while (replacement.GetComponent<blockProfile>().colourIs == currentObject.GetComponent<blockProfile>().colourIs);
+        return replacement;
+    }
 }
+

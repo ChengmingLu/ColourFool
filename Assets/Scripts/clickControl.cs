@@ -88,3 +88,5 @@ public class clickControl : MonoBehaviour {
         blockProfile.updateIndex();
     }
 }
+
+
