@@ -4,7 +4,7 @@ using System.Collections;
 
 public class TimerScript : MonoBehaviour {
     private Text timerText;
-    public float timeCounter;
+    public static float timeCounter;
     private bool checkBlockPosition;
 	// Use this for initialization
 	void Start () {
