@@ -9,7 +9,7 @@ public class showFinalScore : MonoBehaviour {
 	void Start () {
         gameObject.transform.position = gameObject.transform.parent.gameObject.GetComponentInChildren<restartScript>().gameObject.transform.position + new Vector3(0f, 200f, 0);      
         scoreText = gameObject.GetComponent<Text>();
-        scoreText.text = finalScore.ToString();
+        scoreText.text = scoreHandler.scoreDisplay.ToString();
 	}
 	
 	// Update is called once per frame
