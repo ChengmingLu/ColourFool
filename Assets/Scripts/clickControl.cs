@@ -4,14 +4,12 @@ using System.Collections;
 public class clickControl : MonoBehaviour {
     public static GameObject selectedBlock1;
     public static GameObject selectedBlock2;
-    //private int blockSpeed = 10;
-	// Use this for initialization
+
 	void Start () {
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
     void OnMouseDown() {
